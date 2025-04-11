@@ -1,6 +1,6 @@
 # Student Grades API
 
-API REST de gestion des notes étudiantes, développée en Java Spring Boot avec MySQL.
+API REST de gestion des notes étudiantes, développée en Java Spring Boot avec MySQL et documentée avec Swagger UI.
 
 ---
 
@@ -18,16 +18,20 @@ API REST de gestion des notes étudiantes, développée en Java Spring Boot avec
 - **Génération de Rapports**  
   ➔ Calcul de la moyenne des notes par étudiant ou par cours.
 
+- **Documentation Swagger**  
+  ➔ Tester toutes les routes directement via une interface visuelle.
+
 ---
 
 ## 🚀 Technologies Utilisées
 
-- Java 17 / 21
-- Spring Boot
+- Java 17
+- Spring Boot 3.4.4
 - Spring Data JPA
 - MySQL
 - Lombok
-- Jakarta Bean Validation (Validation API)
+- Jakarta Bean Validation
+- Swagger OpenAPI (springdoc-openapi 2.3.0)
 
 ---
 
@@ -35,7 +39,7 @@ API REST de gestion des notes étudiantes, développée en Java Spring Boot avec
 
 ### 1. Prérequis
 
-- Java JDK 17 ou 21
+- Java JDK 17
 - Maven
 - MySQL Server
 
@@ -69,7 +73,11 @@ spring.jpa.hibernate.ddl-auto=update
 ./mvnw spring-boot:run
 ```
 
-Ou depuis votre IDE (IntelliJ, Eclipse).
+Ou :
+
+```bash
+java -jar target/studentgrades-0.0.1-SNAPSHOT.jar
+```
 
 ---
 
@@ -97,6 +105,71 @@ Ou depuis votre IDE (IntelliJ, Eclipse).
 
 ---
 
+## 📖 Documentation Swagger
+
+Une fois l'application démarrée, accédez à la documentation visuelle ici :
+
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+Swagger permet de :
+- Visualiser tous les endpoints
+- Tester les requêtes **POST**, **GET**, **PUT**, **DELETE**
+- Vérifier directement les réponses API
+
+---
+
+## 🎯 Exemple d'utilisation rapide
+
+1. **Ajouter un étudiant**
+
+POST `/students` ➔ Body JSON :
+
+```json
+{
+  "firstName": "Jean",
+  "lastName": "Dupont"
+}
+```
+
+2. **Ajouter un cours**
+
+POST `/courses` ➔ Body JSON :
+
+```json
+{
+  "name": "Mathématiques"
+}
+```
+
+3. **Ajouter une note**
+
+POST `/grades` ➔ Body JSON :
+
+```json
+{
+  "student": {
+    "id": 1
+  },
+  "course": {
+    "id": 1
+  },
+  "value": 15.5
+}
+```
+
+4. **Consulter la moyenne**
+
+GET `/reports/student/1` ➔ Résultat :
+
+```json
+15.5
+```
+
+---
+
 ## 👨‍🏫 Auteurs
 
 Projet réalisé dans le cadre d'un devoir pour [Pierre Paillard](mailto:paillard.pierre@gmail.com).
+
+---
+
