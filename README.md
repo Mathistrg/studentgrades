@@ -167,9 +167,5 @@ GET `/reports/student/1` ➔ Résultat :
 
 ---
 
-## 👨‍🏫 Auteurs
-
-Projet réalisé dans le cadre d'un devoir pour [Pierre Paillard](mailto:paillard.pierre@gmail.com).
-
 ---
 
