@@ -46,7 +46,7 @@ API REST de gestion des notes étudiantes, développée en Java Spring Boot avec
 ### 2. Cloner le projet
 
 ```bash
-git clone https://github.com/votre-utilisateur/studentgrades.git
+git clone https://github.com/Mathistrg/studentgrades.git
 cd studentgrades
 ```
 
